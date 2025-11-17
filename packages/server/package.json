@@ -4,8 +4,9 @@
   "description": "OpenTracker Server - 服务端",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "echo 'Server dev script'",
-    "build": "echo 'Server build script'"
+    "dev": "ts-node src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc"
   },
   "keywords": [
     "tracker",
