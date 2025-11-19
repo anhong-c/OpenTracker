@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "packages/admin/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/packages/admin/$1" }]
+}
