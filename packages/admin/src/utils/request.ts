@@ -12,7 +12,6 @@ service.interceptors.request.use(
   (config) => {
     const token = getToken()
     if (token) {
-      // 给请求头添加 Authorization 字段（真实后端常用格式）
       config.headers.Authorization = `Bearer ${token}`
     }
     return config
@@ -28,7 +27,6 @@ service.interceptors.response.use(
       // token 无效/过期：清除 token + 跳转登录页
       removeToken()
       alert('登录已过期，请重新登录')
-      // 跳转登录页（配合 React Router）
       window.location.href = '/login'
     }
     return Promise.reject(error)

@@ -2,12 +2,18 @@ import { Context } from 'koa'
 import bcrypt from 'bcryptjs'
 import { IRegisterRequest, ILoginRequest, IApiResponse, IAuthResponse } from '../types'
 import { validatePassword, validateUsername } from '../utils/validation'
+import { JWTUtil, TokenPayload } from '../utils/jwt'
 
 // 临时内存存储
 const users: any[] = []
 let userIdCounter = 1
 
 class AuthController {
+  constructor() {
+    // 绑定方法到当前实例
+    this.register = this.register.bind(this)
+    this.login = this.login.bind(this)
+  }
   // 用户注册
   async register(ctx: Context): Promise<void> {
     const { username, password } = ctx.request.body as IRegisterRequest
@@ -54,12 +60,21 @@ class AuthController {
 
       console.log('新用户注册成功:', username)
 
-      // 直接返回用户信息
+      // 生成 Token
+      const tokenPayload: TokenPayload = {
+        userId: user.id,
+        username: user.username,
+      }
+      const token = JWTUtil.generateToken(tokenPayload)
+
+      // 返回用户信息和token
       const responseData: IAuthResponse = {
         user: {
           id: user.id,
           username: user.username,
         },
+        token,
+        expiresIn: '7d',
       }
 
       ctx.body = this.createResponse(200, '注册成功', responseData)
@@ -101,12 +116,21 @@ class AuthController {
 
       console.log('用户登录成功:', user.username)
 
-      // 直接返回用户信息
+      // 生成 Token
+      const tokenPayload: TokenPayload = {
+        userId: user.id,
+        username: user.username,
+      }
+      const token = JWTUtil.generateToken(tokenPayload)
+
+      // 返回用户信息和token
       const responseData: IAuthResponse = {
         user: {
           id: user.id,
           username: user.username,
         },
+        token,
+        expiresIn: '7d',
       }
 
       ctx.body = this.createResponse(200, '登录成功', responseData)

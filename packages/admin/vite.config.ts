@@ -1,4 +1,4 @@
-// vite.config.ts（原 .js 后缀可直接改 .ts）
+// vite.config.ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc' // 支持 TS/TSX 编译
 
@@ -12,9 +12,10 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'http://123.57.81.94',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api'),
       },
     },
   },
