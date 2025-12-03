@@ -1,5 +1,5 @@
-export { Tracker } from './reporter';
-export { default } from './reporter';
+export { Tracker } from './reporter'
+export { default } from './reporter'
 
 export {
   initTracker,
@@ -7,7 +7,13 @@ export {
   reportPerformance,
   reportBehavior,
   reportError,
-  trackEvent
-} from './reporter';
+  reportWhiteScreen,
+  trackEvent,
+} from './reporter'
 
-export type { TrackerConfig, QueueConfig, RetryConfig, TransportConfig } from '../../types/src/core/config';
+export type {
+  TrackerConfig,
+  QueueConfig,
+  RetryConfig,
+  TransportConfig,
+} from '../../types/src/core/config'
