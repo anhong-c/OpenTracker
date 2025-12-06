@@ -30,6 +30,10 @@ const AuthenticatedApp: React.FC = () => {
       sub31: '/home/behavior',
       sub41: '/home/customer',
       sub51: '/home/error',
+      sub52: '/home/error/js',
+      sub53: '/home/error/api',
+      sub54: '/home/error/cors',
+      sub55: '/home/error/behavior',
       sub61: '/home/performance',
       sub71: '/home/blank',
     }

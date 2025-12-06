@@ -31,7 +31,7 @@
     }
   },
   // 指定 TS 需要编译的文件范围
-  "include": ["src/**/*", "vite.config.ts"],
+  "include": ["src/**/*", "mock/**/*", "vite.config.ts"],
   // 排除不需要编译的文件
   "exclude": ["node_modules", "dist"]
 }
