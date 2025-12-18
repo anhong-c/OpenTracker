@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "OpenTracker Admin - 管理后台",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "mock": "json-server --watch mock/db.json --port 3001"
@@ -17,7 +17,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/charts": "^2.6.6",
     "@ant-design/icons": "^6.1.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -38,7 +37,6 @@
     "@vitejs/plugin-react": "^5.1.1",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "eslint-plugin-react": "^7.37.5",
-    "json-server": "1.0.0-beta.3",
     "typescript": "^5.9.3",
     "vite": "^7.2.2"
   }
